@@ -4,7 +4,9 @@
 **Julian Adolfo Peña Marin**
 
 ## Wiki
-https://github.com/JulianP-24/Proyecto_ARSW_INTER_2022/wiki
+
+La Wiki se encuentra en el siguiente enlace:
+![Wiki](https://github.com/JulianP-24/Proyecto_ARSW_INTER_2022/wiki)
 
 ## Built con
 
