@@ -34,10 +34,10 @@ public class UserController {
     @Autowired
     VendedorService vendedorService;
 
+    //@RequestMapping(produces = "application/json")
     @PostMapping("/signUp")
     public ResponseEntity<?> signUp(@RequestBody Usuario user) {
-        user = new Usuario(user.getUsername(), user.getPassword(), user.getEmail(), user.getName(), user.getSurname(),
-                user.getRoles());
+        user = new Usuario(user.getUsername(), user.getPassword(), user.getEmail(), user.getName(), user.getSurname(),user.getRoles());
 
         String roles = user.getRoles();
         if (roles.equals(null)) {
@@ -53,7 +53,7 @@ public class UserController {
                 vendedorService.newVendedor(vendedor);
             }
         }
-
+        System.out.println("Usuario Registrado");
         return new ResponseEntity<>(userService.newUser(user), HttpStatus.ACCEPTED);
     }
     
