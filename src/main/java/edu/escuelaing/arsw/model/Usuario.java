@@ -38,20 +38,21 @@ public class Usuario implements Serializable {
     @Column(unique = true)
     private String email;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"), uniqueConstraints = {@UniqueConstraint(columnNames = { "usuario_id", "rol_id" }) })
-    private List<Rol> roles;
+    /*@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"), uniqueConstraints = {@UniqueConstraint(columnNames = { "usuario_id", "rol_id" }) })*/
+    private String roles;
 
     public Usuario() {
 
     }
     
-    public Usuario(String username, String password, String email, String name, String surname) {
+    public Usuario(String username, String password, String email, String name, String surname, String rol) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.name = name;
         this.surname = surname;
+        this.roles = rol;
     }
 
     public long getId() {
@@ -100,6 +101,15 @@ public class Usuario implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
     }
 
     @Override
