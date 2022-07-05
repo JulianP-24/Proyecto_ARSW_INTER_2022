@@ -33,7 +33,7 @@ public class Producto implements Serializable{
     private String descripcion;
 
     @Column(nullable = false)
-    private int precio;
+    private Double precio;
 
     @Column(name = "fecha_creacion")
     @Temporal(TemporalType.DATE)
@@ -73,11 +73,11 @@ public class Producto implements Serializable{
         this.descripcion = descripcion;
     }
 
-    public int getPrecio() {
+    public Double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(Double precio) {
         this.precio = precio;
     }
 
