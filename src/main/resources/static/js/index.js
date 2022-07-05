@@ -13,23 +13,21 @@ var Module = (function() {
 
         signUp: function (username, password, name, surname, email, roles) {
             //var name = document.getElementById("name").value;
-            var url = '/SubastaExpress/signUp';
-            fetch(url, {
+            let header = {
                 method: 'POST',
-                dataType: "JSON",
-                contentType: "application/json; charset=UTF-8",
-                body:{
-                    "username": username,
-                    "password": password,
-                    "name": name,
-                    "surname": surname,
-                    "email": email,
-                    "roles": roles
-                },
-            })
+                headers: { 'Content-Type': 'application/json' },
+                body:JSON.stringify({
+                    username : username,
+                    password: password,
+                    name: name,
+                    surname: surname,
+                    email: email,
+                    roles: roles})
+                }
+            var url = "/SubastaExpress/signUp";
+            fetch(url, header)
                 .then(response => console.log("usuario registrado"))
             
         }
-        //
     }
 })();

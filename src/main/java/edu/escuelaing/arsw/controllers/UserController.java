@@ -34,7 +34,7 @@ public class UserController {
     @Autowired
     VendedorService vendedorService;
 
-    //@RequestMapping(produces = "application/json")
+    @RequestMapping(produces = "application/json")
     @PostMapping("/signUp")
     public ResponseEntity<?> signUp(@RequestBody Usuario user) {
         user = new Usuario(user.getUsername(), user.getPassword(), user.getEmail(), user.getName(), user.getSurname(),user.getRoles());

@@ -1,13 +1,18 @@
 package edu.escuelaing.arsw.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -32,14 +37,18 @@ public class Vendedor implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fechaCreacion;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "vendedor", cascade = CascadeType.ALL)
+    private List<Producto> productos;
+
 
     public Vendedor() {
-
+        this.productos = new ArrayList<>();
     }
 
     public Vendedor(String name, String email) {
         this.name = name;
         this.email = email;
+        this.productos = new ArrayList<>();
     }
 
     public Long getId() {
@@ -79,6 +88,12 @@ public class Vendedor implements Serializable {
         this.fechaCreacion = fechaCreacion;
     }
 
-    
+    public List<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
+    }
 
 }
