@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
-@RequestMapping(value = "/SubastaExpress")
+//@RequestMapping(value = "/SubastaExpress")
 public class CompradorController {
     
     @Autowired
