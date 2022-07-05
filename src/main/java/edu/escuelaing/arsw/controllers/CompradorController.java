@@ -6,7 +6,7 @@ import edu.escuelaing.arsw.model.Comprador;
 import edu.escuelaing.arsw.model.Producto;
 import edu.escuelaing.arsw.model.Vendedor;
 import edu.escuelaing.arsw.services.CompradorService;
-import edu.escuelaing.arsw.services.ProductoService;
+import edu.escuelaing.arsw.services.productoservice;
 import edu.escuelaing.arsw.services.VendedorService;
 
 import java.util.List;
@@ -19,21 +19,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
-//@RequestMapping(value = "/SubastaExpress")
+@RequestMapping(value = "/SubastaExpress")
 public class CompradorController {
     
     @Autowired
     CompradorService compradorService;
 
-    @Autowired 
-    ProductoService productoService;
+    @Autowired
+    productoservice productoService;
 
     @Autowired
     VendedorService vendedorService;
 
     @GetMapping("/productos")
     public ResponseEntity<?> getProducts() {
-        List<Producto> productos = productoService.findALL();
+        List<Producto> productos = productoService.findALLProducts();
         return new ResponseEntity<>(productos, HttpStatus.ACCEPTED);
     }
 

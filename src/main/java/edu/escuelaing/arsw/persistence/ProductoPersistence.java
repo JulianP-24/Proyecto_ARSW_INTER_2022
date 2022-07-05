@@ -7,10 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import edu.escuelaing.arsw.model.Producto;
 
 public interface ProductoPersistence extends JpaRepository<Producto, Long> {
-    public Producto findByname(String name);
+    public Producto findByproductName(String productName);
 
-    public List<Producto> findAllProducts();
-
-    public List<Producto> findByPrize(Double precio);
+    public List<Producto> findByPrecio(Double precio);
 
 }

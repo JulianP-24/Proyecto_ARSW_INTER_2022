@@ -3,28 +3,30 @@ package edu.escuelaing.arsw.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import edu.escuelaing.arsw.model.Producto;
 import edu.escuelaing.arsw.persistence.ProductoPersistence;
 
-public class ProductoService {
-    
+@Service
+public class productoservice {
     @Autowired
-    ProductoPersistence productoPersistence;
+    private ProductoPersistence productoPersistence;
 
-    public List<Producto> findALL() {
-        return productoPersistence.findAllProducts();
+    public List<Producto> findALLProducts() {
+        return productoPersistence.findAll();
     }
 
     public Producto newProducto(Producto producto) {
         return productoPersistence.save(producto);
     }
 
-    public Producto findByName(String name) {
-        return productoPersistence.findByname(name);
+    public Producto findByName(String productName) {
+        return productoPersistence.findByproductName(productName);
     }
 
     public List<Producto> findByprize(Double precio) {
-        return productoPersistence.findByPrize(precio);
+        return productoPersistence.findByPrecio(precio);
     }
 }
+
