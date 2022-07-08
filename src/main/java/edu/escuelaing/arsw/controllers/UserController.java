@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.escuelaing.arsw.model.Comprador;
-import edu.escuelaing.arsw.model.Rol;
 import edu.escuelaing.arsw.model.Usuario;
 import edu.escuelaing.arsw.model.Vendedor;
 import edu.escuelaing.arsw.services.CompradorService;

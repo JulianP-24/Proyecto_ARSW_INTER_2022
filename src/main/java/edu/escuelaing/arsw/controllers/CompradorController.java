@@ -10,7 +10,8 @@ import edu.escuelaing.arsw.services.productoservice;
 import edu.escuelaing.arsw.services.VendedorService;
 
 import java.util.List;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +38,17 @@ public class CompradorController {
         return new ResponseEntity<>(productos, HttpStatus.ACCEPTED);
     }
 
+    @GetMapping("/productos/{id}")
+    public ResponseEntity<?> getProductsById(@PathVariable Long id) {
+        try{
+            Producto producto = productoService.productoById(id);
+            return new ResponseEntity<>(producto, HttpStatus.ACCEPTED);
+        } catch (Exception ex) {
+            Logger.getLogger(CompradorController.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     @GetMapping("/productos/listar/{name}")
     public ResponseEntity<?> getProductsbyName(@PathVariable String name) {
         Producto producto = productoService.findByName(name);
@@ -56,7 +68,7 @@ public class CompradorController {
     }
 
     @GetMapping("/vendedor/{id}")
-    public ResponseEntity<?> getVendedorByName(@PathVariable Long id) {
+    public ResponseEntity<?> getVendedorById(@PathVariable Long id) {
         Vendedor vendedor = vendedorService.findById(id);
         return new ResponseEntity<>(vendedor, HttpStatus.ACCEPTED);
     }
@@ -65,6 +77,12 @@ public class CompradorController {
     public ResponseEntity<?> getAllVendedores() {
         List<Vendedor> vendedores = vendedorService.findAll();
         return new ResponseEntity<>(vendedores, HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping("/comprador/vendedor/{id}")
+    public ResponseEntity<?> getProductosDelVendedor(@PathVariable Long id) {
+        Vendedor vendedor = vendedorService.findById(id);
+        return new ResponseEntity<>(productoService.findByVendedor(vendedor), HttpStatus.ACCEPTED);
     }
 
 }
