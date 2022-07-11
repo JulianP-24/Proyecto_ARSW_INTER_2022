@@ -22,7 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @RestController
-@RequestMapping(value = "/SubastaExpress")
+@RequestMapping(value = "/Vendedor")
 public class VendedorController {
     
     @Autowired

@@ -13,18 +13,19 @@ var Module = (function() {
 
         signUp: function (username, password, name, surname, email, roles) {
             //var name = document.getElementById("name").value;
-            let header = {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body:JSON.stringify({
+            let datos = {
                     username : username,
                     password: password,
                     name: name,
                     surname: surname,
                     email: email,
-                    roles: roles})
+                    roles: roles}
+            let header = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body:JSON.stringify(datos)
                 }
-            var url = "/SubastaExpress/signUp";
+            var url = '/SubastaExpress/signUp';
             fetch(url, header)
                 .then(response => console.log("usuario registrado"))
             

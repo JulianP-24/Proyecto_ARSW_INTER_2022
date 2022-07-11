@@ -13,7 +13,7 @@ public interface ProductoPersistence extends JpaRepository<Producto, Long> {
 
     public List<Producto> findByPrecio(Double precio);
 
-    @Query("select products from productos where products.vendedor = ?1")
+    @Query("select products from Producto products where products.vendedor = ?1")
     public List<Producto> findProductosByVendedor(Vendedor vendedor);
 
 }
