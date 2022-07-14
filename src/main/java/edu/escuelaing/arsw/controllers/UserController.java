@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +23,7 @@ import edu.escuelaing.arsw.services.VendedorService;
 
 @RestController
 @RequestMapping(value = "/SubastaExpress")
+@CrossOrigin("*")
 public class UserController {
     
     @Autowired
@@ -58,6 +60,10 @@ public class UserController {
     @GetMapping("/login/{username}")
     public ResponseEntity<?> login(@RequestBody @PathVariable String username) {
         Usuario user = userService.findByUserName(username);
+        String nameUser = user.getUsername();
+        if (!nameUser.equals(username)) {
+            return new ResponseEntity<>("No se encontro el usuario", HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
     }
 
