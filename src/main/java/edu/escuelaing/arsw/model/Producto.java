@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 @Table(name = "productos")
@@ -39,6 +41,7 @@ public class Producto implements Serializable{
     @Temporal(TemporalType.DATE)
     private Date fechaCreacion;
 
+    @JsonIgnoreProperties(value = { "productos", "hibernateLazyInitializer", "handler" }, allowSetters = true)
     @ManyToOne(fetch = FetchType.LAZY)
     private Vendedor vendedor;
 

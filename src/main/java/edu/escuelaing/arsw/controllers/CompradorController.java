@@ -47,7 +47,7 @@ public class CompradorController {
             return new ResponseEntity<>(producto, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
             Logger.getLogger(CompradorController.class.getName()).log(Level.SEVERE, null, ex);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 

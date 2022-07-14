@@ -18,6 +18,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "vendedores")
 public class Vendedor implements Serializable {
@@ -37,6 +39,7 @@ public class Vendedor implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fechaCreacion;
 
+    @JsonIgnoreProperties(value = { "vendedor", "hibernateLazyInitializer", "handler" }, allowSetters = true)
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "vendedor", cascade = CascadeType.ALL)
     private List<Producto> productos;
 
