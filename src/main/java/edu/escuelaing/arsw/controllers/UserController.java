@@ -49,7 +49,7 @@ public class UserController {
                 compradorService.newComprador(comprador);
             }
             if (roles.equals("Vendedor")) {
-                Vendedor vendedor = new Vendedor(user.getUsername(), user.getEmail());
+                Vendedor vendedor = new Vendedor(user.getName(), user.getEmail());
                 vendedorService.newVendedor(vendedor);
             }
         }

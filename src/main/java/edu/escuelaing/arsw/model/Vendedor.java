@@ -17,7 +17,6 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
