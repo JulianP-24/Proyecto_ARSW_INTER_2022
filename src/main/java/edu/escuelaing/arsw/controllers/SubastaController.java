@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class SubastaController {
     
     @Autowired
@@ -20,7 +20,7 @@ public class SubastaController {
         String product = mensajes.get(1);
         if(mensajes.size() == 3 || mensajes.size() == 2) {    		
     		String respuesta =  product + "." + mensajes.get(0);
-    		msgt.convertAndSend("/topic/subasta." + product, respuesta);
+    		msgt.convertAndSend("/topic/subasta" + product, respuesta);
     	}else {
     		Integer mensaje = Integer.parseInt(mensajes.get(0));
             Integer precio = Integer.parseInt(mensajes.get(2));
@@ -35,7 +35,7 @@ public class SubastaController {
             }
            
             
-            msgt.convertAndSend("/topic/chat." + product, respuesta);
+            msgt.convertAndSend("/topic/subasta" + product, respuesta);
     	}
     }
 }
