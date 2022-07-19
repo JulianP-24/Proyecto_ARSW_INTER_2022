@@ -51,7 +51,7 @@ public class UserController {
             }
         }
         System.out.println("Usuario Registrado");
-        return new ResponseEntity<>(userService.newUser(usuario), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(userService.newUser(usuario), HttpStatus.OK);
     }
     
     @GetMapping("/login/{username}")
@@ -61,7 +61,7 @@ public class UserController {
         if (!nameUser.equals(username)) {
             return new ResponseEntity<>("No se encontro el usuario", HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
 }
