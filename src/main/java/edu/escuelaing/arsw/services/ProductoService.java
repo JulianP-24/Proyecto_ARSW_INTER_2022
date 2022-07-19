@@ -10,7 +10,7 @@ import edu.escuelaing.arsw.model.Vendedor;
 import edu.escuelaing.arsw.persistence.ProductoPersistence;
 
 @Service
-public class productoservice {
+public class ProductoService {
     @Autowired
     private ProductoPersistence productoPersistence;
 

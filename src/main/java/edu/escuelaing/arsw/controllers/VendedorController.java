@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.escuelaing.arsw.model.Producto;
 import edu.escuelaing.arsw.model.Vendedor;
 import edu.escuelaing.arsw.services.VendedorService;
-import edu.escuelaing.arsw.services.productoservice;
+import edu.escuelaing.arsw.services.ProductoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,7 +31,7 @@ public class VendedorController {
     VendedorService vendedorService;
 
     @Autowired
-    productoservice productoService;
+    ProductoService productoService;
 
     @GetMapping("/vendedor")
     public ResponseEntity<?> getALLVendedores() {

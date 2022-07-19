@@ -6,7 +6,7 @@ import edu.escuelaing.arsw.model.Comprador;
 import edu.escuelaing.arsw.model.Producto;
 import edu.escuelaing.arsw.model.Vendedor;
 import edu.escuelaing.arsw.services.CompradorService;
-import edu.escuelaing.arsw.services.productoservice;
+import edu.escuelaing.arsw.services.ProductoService;
 import edu.escuelaing.arsw.services.VendedorService;
 
 import java.util.List;
@@ -29,7 +29,7 @@ public class CompradorController {
     CompradorService compradorService;
 
     @Autowired
-    productoservice productoService;
+    ProductoService productoService;
 
     @Autowired
     VendedorService vendedorService;
