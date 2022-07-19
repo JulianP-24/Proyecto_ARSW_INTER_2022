@@ -65,7 +65,7 @@ public class VendedorController {
             }
             producto.setVendedor(vendedor);
             newProduct = productoService.newProducto(producto);
-            return new ResponseEntity<>(newProduct, HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(newProduct, HttpStatus.OK);
 
         } catch (Exception ex) {
             Logger.getLogger(CompradorController.class.getName()).log(Level.SEVERE, null, ex);
