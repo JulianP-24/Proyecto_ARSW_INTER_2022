@@ -61,8 +61,6 @@ public class UserController {
         String password = user.getPassword();
         if ((!nameUser.equals(username)) || (!password.equals(pwd))) {
             return new ResponseEntity<>("Usuario o contraseña incorrecta", HttpStatus.BAD_REQUEST);
-        } if(username.isBlank() || pwd.isBlank()){
-            return new ResponseEntity<>("Los campos no pueden estar vacios", HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
