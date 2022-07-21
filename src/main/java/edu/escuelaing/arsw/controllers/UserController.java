@@ -54,12 +54,15 @@ public class UserController {
         return new ResponseEntity<>(userService.newUser(usuario), HttpStatus.OK);
     }
     
-    @GetMapping("/login/{username}")
-    public ResponseEntity<?> login(@RequestBody @PathVariable String username) {
+    @GetMapping("/login/{username}/{pwd}")
+    public ResponseEntity<?> login(@RequestBody @PathVariable String username, @PathVariable String pwd) {
         Usuario user = userService.findByUserName(username);
         String nameUser = user.getUsername();
-        if (!nameUser.equals(username)) {
-            return new ResponseEntity<>("No se encontro el usuario", HttpStatus.BAD_REQUEST);
+        String password = user.getPassword();
+        if ((!nameUser.equals(username)) || (!password.equals(pwd))) {
+            return new ResponseEntity<>("Usuario o contraseña incorrecta", HttpStatus.BAD_REQUEST);
+        } if(nameUser.isBlank() || password.isBlank()){
+            return new ResponseEntity<>("Los campos no pueden estar vacios", HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
