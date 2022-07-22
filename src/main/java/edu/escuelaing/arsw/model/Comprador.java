@@ -29,6 +29,7 @@ public class Comprador implements Serializable{
 
     private String foto;
 
+    
     public Comprador() {
 
     }

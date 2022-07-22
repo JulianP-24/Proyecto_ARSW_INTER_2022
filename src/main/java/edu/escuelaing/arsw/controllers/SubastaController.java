@@ -14,6 +14,12 @@ public class SubastaController {
     @Autowired
     SimpMessagingTemplate msgt;
 
+    /**
+     * It receives a list of strings, and depending on the size of the list, it sends a message to the
+     * topic /topic/subasta + product
+     * 
+     * @param mensajes List of Strings
+     */
     @MessageMapping("/subasta")
     public void handleSubastaState(List<String> mensajes) {
         String product = mensajes.get(1);
@@ -32,8 +38,6 @@ public class SubastaController {
             }else {
             	respuesta= precio.toString();
             }
-           
-            
             msgt.convertAndSend("/topic/subasta" + product, respuesta);
     	}
     }

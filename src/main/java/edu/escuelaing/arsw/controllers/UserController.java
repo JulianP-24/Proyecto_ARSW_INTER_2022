@@ -32,6 +32,13 @@ public class UserController {
     @Autowired
     VendedorService vendedorService;
 
+    /**
+     * I want to create a new user, and if the user is a buyer, I want to create a new buyer, and if
+     * the user is a seller, I want to create a new seller
+     * 
+     * @param user Usuario
+     * @return The userService.newUser(usuario) is being returned.
+     */
     @PostMapping("/signUp")
     public ResponseEntity<?> signUp(@RequestBody Usuario user) {
         Usuario usuario = new Usuario(user.getUsername(), user.getPassword(), user.getEmail(), user.getName(), user.getSurname(),user.getRoles());
@@ -54,6 +61,14 @@ public class UserController {
         return new ResponseEntity<>(userService.newUser(usuario), HttpStatus.OK);
     }
     
+    /**
+     * It takes a username and password from the URL, and then checks if the username and password are
+     * correct. If they are, it returns the user object. If they aren't, it returns an error message
+     * 
+     * @param username String
+     * @param pwd 123456
+     * @return The user object
+     */
     @GetMapping("/login/{username}/{pwd}")
     public ResponseEntity<?> login(@RequestBody @PathVariable String username, @PathVariable String pwd) {
         Usuario user = userService.findByUserName(username);
