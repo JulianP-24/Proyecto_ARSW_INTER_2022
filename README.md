@@ -33,6 +33,14 @@ La Wiki se encuentra en el siguiente enlace:
 
 [Wiki](https://github.com/JulianP-24/Proyecto_ARSW_INTER_2022/wiki)
 
+## Documentación
+
+Para obtener la documentacion se puede utilizar el siguiente comando para generarla
+
+```
+    mvn javadoc:javadoc
+```
+
 ## Heroku Frontend
 [Heroku](https://subasta-express-frontend.herokuapp.com/)
 
