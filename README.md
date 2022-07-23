@@ -42,10 +42,10 @@ La Wiki se encuentra en el siguiente enlace:
 ## Diagramas De la Aplicacion
 
 * Diagrama De clases
-![](../Class%20Diagram0.png)
+![](img/Class%20Diagram0.png)
 
 * Diagrama de Componentes
-![](../Component%20Diagram0.png)
+![](img/Component%20Diagram0.png)
 
 ## Historias de Usuario
 [Backlog - ](https://tree.taiga.io/project/julianpe-subastaexpress/backlog)[SubastaExpress](https://tree.taiga.io/project/julianpe-subastaexpress/backlog)[ (taiga.io)](https://tree.taiga.io/project/julianpe-subastaexpress/backlog)
